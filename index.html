@@ -6,7 +6,7 @@
 <title>Arvind Sharma | Senior IT Executive</title>
 <style>
 body{margin:0;font-family:Inter,Arial,Helvetica,sans-serif;background:#f5f7fb;color:#1f2937}
-.topnav{display:flex;align-items:center;gap:18px;padding:14px 30px;background:#0b5ed7;color:#fff;position:sticky;top:0;z-index:100}
+.topnav{display:flex;justify-content:center;align-items:center;gap:26px;padding:14px 30px;background:#0b5ed7;color:#fff;position:sticky;top:0;z-index:100}
 .topnav a{color:#fff;text-decoration:none;font-weight:500;display:flex;align-items:center;gap:6px}
 .container{max-width:1200px;margin:auto;padding:25px}
 .header-card{display:grid;grid-template-columns:120px 1fr;gap:20px;background:#fff;border-radius:14px;padding:25px;box-shadow:0 8px 24px rgba(0,0,0,.08)}
@@ -22,6 +22,15 @@ body{margin:0;font-family:Inter,Arial,Helvetica,sans-serif;background:#f5f7fb;co
 .table th,.table td{padding:10px;border-bottom:1px solid #e5e7eb;text-align:left}
 .download{background:#0b5ed7;color:#fff;border:none;padding:12px 18px;border-radius:8px;cursor:pointer}
 footer{text-align:center;padding:30px;color:#6b7280}
+
+/* PDF PRINT STYLES */
+@media print{
+  body{background:#fff}
+  .topnav,.section#labs,.section#contact{display:none}
+  .container{max-width:100%;padding:0}
+  .card,.header-card{box-shadow:none;border-radius:0}
+  h1,h2{color:#000}
+}
 </style>
 </head>
 <body>
@@ -43,7 +52,8 @@ footer{text-align:center;padding:30px;color:#6b7280}
     <h1>Arvind Sharma</h1>
     <p><strong>Senior IT Executive</strong> | Infrastructure • Security • Cloud • Automation</p>
     <p>Mumbai, India | 📧 arvindcbs2@gmail.com | 🔗 <a href="https://www.linkedin.com/in/arvindcbs2/" target="_blank">LinkedIn</a> | 💻 <a href="https://github.com/arvindcbs2" target="_blank">GitHub</a></p>
-    <button class="download">⬇ Download 1–2 Page PDF Resume</button>
+    <button class="download" onclick="window.print()">⬇ Download 1–2 Page PDF Resume</button>
+    <p style="font-size:12px;color:#6b7280;margin-top:6px">* Professionally designed PDF layout (1–2 pages) optimized for recruiters & ATS</p>
   </div>
 </section>
 
@@ -109,7 +119,8 @@ footer{text-align:center;padding:30px;color:#6b7280}
   <h2>📬 Contact</h2>
   <div class="card">
     <p>Use the form below to reach me directly.</p>
-    <form action="https://formspree.io/f/xxxxxx" method="POST">
+    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <!-- Replace YOUR_FORM_ID after creating Formspree form -->
       <input type="text" name="name" placeholder="Your Name" style="width:100%;padding:10px;margin-bottom:10px">
       <input type="email" name="email" placeholder="Your Email" style="width:100%;padding:10px;margin-bottom:10px">
       <textarea name="message" placeholder="Message" style="width:100%;padding:10px"></textarea><br><br>
