@@ -1,135 +1,303 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Arvind Sharma | Senior IT Executive</title>
-<style>
-body{margin:0;font-family:Inter,Arial,Helvetica,sans-serif;background:#f5f7fb;color:#1f2937}
-.topnav{display:flex;justify-content:center;align-items:center;gap:26px;padding:14px 30px;background:#0b5ed7;color:#fff;position:sticky;top:0;z-index:100}
-.topnav a{color:#fff;text-decoration:none;font-weight:500;display:flex;align-items:center;gap:6px}
-.container{max-width:1200px;margin:auto;padding:25px}
-.header-card{display:grid;grid-template-columns:120px 1fr;gap:20px;background:#fff;border-radius:14px;padding:25px;box-shadow:0 8px 24px rgba(0,0,0,.08)}
-.header-card img{width:110px;height:110px;border-radius:50%;object-fit:cover}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:25px}
-.card{background:#fff;border-radius:14px;padding:20px;box-shadow:0 6px 18px rgba(0,0,0,.08)}
-.card h3{margin-top:0}
-.badge{display:inline-block;background:#e5edff;color:#0b5ed7;padding:4px 10px;border-radius:999px;font-size:12px;margin:4px 4px 0 0}
-.section{margin-top:35px}
-.timeline{border-left:3px solid #0b5ed7;padding-left:20px}
-.timeline-item{margin-bottom:25px}
-.table{width:100%;border-collapse:collapse}
-.table th,.table td{padding:10px;border-bottom:1px solid #e5e7eb;text-align:left}
-.download{background:#0b5ed7;color:#fff;border:none;padding:12px 18px;border-radius:8px;cursor:pointer}
-footer{text-align:center;padding:30px;color:#6b7280}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arvind Sharma | Senior IT Executive</title>
 
-/* PDF PRINT STYLES */
-@media print{
-  body{background:#fff}
-  .topnav,.section#labs,.section#contact{display:none}
-  .container{max-width:100%;padding:0}
-  .card,.header-card{box-shadow:none;border-radius:0}
-  h1,h2{color:#000}
-}
-</style>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f7fa;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    h1, h2, h3 {
+      color: #0a3d62;
+    }
+
+    h1 {
+      border-bottom: 3px solid #0a3d62;
+      padding-bottom: 10px;
+    }
+
+    .section {
+      background: #fff;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    }
+
+    .card {
+      background: #f9fbfd;
+      padding: 20px;
+      border-radius: 8px;
+      border: 1px solid #e0e6ed;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    table th, table td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+    }
+
+    table th {
+      background: #0a3d62;
+      color: #fff;
+    }
+
+    .progress {
+      background: #ddd;
+      border-radius: 20px;
+      overflow: hidden;
+      height: 18px;
+    }
+
+    .progress-bar {
+      height: 100%;
+      background: #38ada9;
+      text-align: right;
+      padding-right: 6px;
+      color: #fff;
+      font-size: 12px;
+      line-height: 18px;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #e1ecf4;
+      color: #0a3d62;
+      padding: 4px 8px;
+      margin: 4px;
+      border-radius: 5px;
+      font-size: 12px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: #0a3d62;
+      color: #fff;
+      font-size: 14px;
+    }
+
+    iframe {
+      width: 100%;
+      max-width: 720px;
+      height: 720px;
+      border: none;
+    }
+  </style>
 </head>
-<body>
 
-<div class="topnav">
-  <a href="#summary">📄 Resume</a>
-  <a href="#skills">🧠 Skills</a>
-  <a href="#experience">💼 Experience</a>
-  <a href="#labs">🧪 Labs</a>
-  <a href="#certs">🎓 Certs</a>
-  <a href="#contact">📬 Contact</a>
-</div>
+<body>
 
 <div class="container">
 
-<section id="summary" class="header-card">
-  <img src="profile.jpg" alt="Arvind Sharma">
-  <div>
-    <h1>Arvind Sharma</h1>
-    <p><strong>Senior IT Executive</strong> | Infrastructure • Security • Cloud • Automation</p>
-    <p>Mumbai, India | 📧 arvindcbs2@gmail.com | 🔗 <a href="https://www.linkedin.com/in/arvindcbs2/" target="_blank">LinkedIn</a> | 💻 <a href="https://github.com/arvindcbs2" target="_blank">GitHub</a></p>
-    <button class="download" onclick="window.print()">⬇ Download 1–2 Page PDF Resume</button>
-    <p style="font-size:12px;color:#6b7280;margin-top:6px">* Professionally designed PDF layout (1–2 pages) optimized for recruiters & ATS</p>
-  </div>
-</section>
+  <h1>Arvind Sharma</h1>
+  <p>
+    <strong>Senior IT Executive | Infrastructure • Security • Cloud • Automation</strong><br>
+    Virar West, Mumbai | +91-9594406284 | arvindcbs2@gmail.com 🔗 <a href="https://www.linkedin.com/in/arvindcbs2/" target="_blank">LinkedIn</a>
+  💻 <a href="https://github.com/arvindcbs2" target="_blank">GitHub</a></p>
+  </p>
 
-<section id="skills" class="section">
-  <h2>🧠 Core Skills</h2>
-  <div class="cards">
-    <div class="card"><h3>🔐 Security</h3>Cloudflare (Admin), Sophos Firewall, SSL, VAPT, Upguard<br><span class="badge">Hands-on</span></div>
-    <div class="card"><h3>☁️ Cloud</h3>AWS (Cloud Practitioner Certified), GSuite Admin<br><span class="badge">Certified</span></div>
-    <div class="card"><h3>🖥️ IT Operations</h3>Zoho ITSM/ITAM, Patch Mgmt, Yotta Backup<br><span class="badge">Owner</span></div>
-    <div class="card"><h3>🤖 Automation & AI</h3>PowerShell, AI-assisted Ops<br><span class="badge">Applied</span></div>
+  <!-- DAY 1 BASELINE -->
+  <div class="section">
+    <h2>📅 Day 1 Baseline</h2>
+    <table>
+      <tr><th>Area</th><th>Status</th></tr>
+      <tr><td>Role</td><td>IT Support / Hardware Engineer</td></tr>
+      <tr><td>Skills</td><td>Desktop Support, Hardware, Basic Networking</td></tr>
+      <tr><td>Security Knowledge</td><td>Basic OS & Antivirus Security</td></tr>
+    </table>
   </div>
-</section>
 
-<section id="experience" class="section">
-  <h2>💼 Professional Experience</h2>
-  <div class="timeline">
-    <div class="timeline-item">
-      <h3>Senior IT Executive – Shipping & Logistics Company</h3>
-      <p><em>2017 – Present</em></p>
+  <!-- CURRENT PROFILE -->
+    <div class="section">
+      <h2>🚀 Current Professional Profile (2025)</h2>
+      <p>Senior IT Executive with 8+ years of experience managing enterprise IT operations, security, and cloud services in corporate environments. Experienced in owning end-to-end IT operations, driving security improvements, and delivering reliable, business-aligned infrastructure.<br><br>Proven track record in operational efficiency through automation, effective handling of security assessments and remediation, and managing modern IT platforms across cloud, network, and endpoint environments. Recognized for a security-first mindset, strong problem-solving abilities, and a disciplined approach to continuous professional growth.</p>
+      <div class="tag">Cloudflare Admin</div>
+      <div class="tag">Zoho ITSM Admin</div>
+      <div class="tag">Cisco Meraki</div>
+      <div class="tag">VAPT Ownership</div>
+      <div class="tag">Backup & DR</div>
+    </div>
+
+     <!-- SKILL PROGRESS TRACKER -->
+    <div class="section">
+      <h2>📊 Skill Progress Tracker</h2>
+      <table>
+        <tr><th>Skill Area</th><th>Progress</th><th>Level</th></tr>
+        <tr>
+          <td>IT Infrastructure & Support</td>
+          <td><div class="progress"><div class="progress-bar" style="width:95%">95%</div></div></td>
+          <td>Advanced</td>
+        
+        </tr>
+        <tr>
+          <td>Cloudflare & Web Security</td>
+          <td><div class="progress"><div class="progress-bar" style="width:80%">80%</div></div></td>
+          <td>Advanced</td>
+      
+        </tr>
+        <tr>
+          <td>Cybersecurity & VAPT</td>
+          <td><div class="progress"><div class="progress-bar" style="width:70%">70%</div></div></td>
+          <td>Intermediate</td>
+      
+        </tr>
+        <tr>
+          <td>AWS Cloud</td>
+          <td><div class="progress"><div class="progress-bar" style="width:45%">45%</div></div></td>
+          <td>Learning</td>
+     
+        </tr>
+        <tr>
+          <td>Firewall Concepts</td>
+          <td><div class="progress"><div class="progress-bar" style="width:40%">40%</div></div></td>
+          <td>Learning</td>
+        
+        </tr>
+        <tr>
+          <td>AI for IT & Security</td>
+          <td><div class="progress"><div class="progress-bar" style="width:30%">30%</div></div></td>
+          <td>Beginner</td>
+        
+        </tr>
+      </table>
+    </div>
+
+  <!-- PROJECT -->
+    <div class="section">
+      <h2>🎓 Certification Tracker</h2>
+      <table>
+        <tr><th>Certification</th><th>Status</th><th>Month & Year</th><th>Attachments</th><th>Remarks</th></tr>
+        <tr><td>Certified Computer Course</td><td>Completed</td><td>2011–2013</td><td>Attachments</td><td>Computer fundamentals & applications</td></tr>
+        <tr><td>B.Com Graduation</td><td>Completed</td><td>April 2015</td><td>Attachments</td><td>Commerce background</td></tr>
+        <tr><td>CCNA (Associate Level)</td><td>Completed</td><td>July 2016</td><td>Attachments</td><td>Networking fundamentals</td></tr>
+        <tr><td>Diploma in Hardware & Networking</td><td>Completed</td><td>July 2016</td><td>Attachments</td><td>Infrastructure & support</td></tr>
+        <tr><td>AWS Cloud Practitioner</td><td>Planned</td><td>2025</td><td>Attachments</td><td>In learning phase</td></tr>
+        <tr><td>ITIL 4 Foundation</td><td>Planned</td><td>2025</td><td>Attachments</td><td>Service management</td></tr>
+      </table>
+    </div>
+
+<!-- PROJECTS & LAB PROOF -->
+    <div class="section">
+      <h2>🧪 Projects & Lab Proof</h2>
+      <h3>Bulk Active Directory User Creation (PowerShell)</h3>
+      <p><strong>Year:</strong> 2024</p>
       <ul>
-        <li>Handled <strong>20–30 ITSM tickets/day</strong> ensuring SLA compliance</li>
-        <li>Administered <strong>Cloudflare WAF, Zero Trust & security policies</strong></li>
-        <li>Completed <strong>VAPT remediation</strong> for corporate website</li>
-        <li>Managed <strong>100% endpoint backup coverage</strong> using Yotta</li>
-        <li>Automated <strong>bulk AD user onboarding</strong> using PowerShell</li>
-        <li>Managed <strong>5 SSL renewals across 10 domains</strong></li>
-        <li>Deployed & troubleshot <strong>Cisco Meraki APs</strong></li>
+        <li>Designed PowerShell script to create bulk AD user accounts using CSV input.</li>
+        <li>Automated user profile creation, OU placement, and basic attribute assignment.</li>
+        <li>Reduced manual effort and provisioning time significantly.</li>
+        <li>Improved accuracy and consistency in user onboarding.</li>
+      </ul>
+      <p><em>(Future enhancement: add GitHub link or script snippet)</em></p>
+    </div>
+
+    <!-- FIREWALL LEARNING PROGRESS -->
+    <div class="section">
+      <h2>🔥 Firewall Skills Progress</h2>
+      <table>
+        <tr><th>Firewall</th><th>Hands-on</th><th>Theory</th><th>Status</th></tr>
+        <tr><td>Sophos Firewall</td><td>Yes</td><td>Partial</td><td>Operational Experience</td></tr>
+        <tr><td>Palo Alto Firewall</td><td>No</td><td>Learning</td><td>Planned</td></tr>
+        <tr><td>FortiGate Firewall</td><td>No</td><td>Learning</td><td>Planned</td></tr>
+      </table>
+      <p>Focus areas: NAT, Security Policies, VPNs, Web Filtering, Zero Trust concepts.</p>
+    </div>
+
+
+    <!-- AI TOOLS & USE CASES -->
+    <div class="section">
+      <h2>🤖 AI Tools & Practical Use Cases</h2>
+      <table>
+        <tr><th>AI Tool</th><th>Usage Level</th><th>Use Case</th></tr>
+        <tr><td>ChatGPT</td><td>Intermediate</td><td>SOP creation, firewall rule explanation, PowerShell logic assistance</td></tr>
+        <tr><td>AI for Documentation</td><td>Intermediate</td><td>IT documentation, policy drafts, audit responses</td></tr>
+        <tr><td>AI for Troubleshooting</td><td>Basic</td><td>Error analysis, log interpretation guidance</td></tr>
+        <tr><td>AI for Security Concepts</td><td>Basic</td><td>Understanding attack patterns & mitigation ideas</td></tr>
+      </table>
+      <p><strong>Current AI Level:</strong> Aware & Applied (Non-coding)</p>
+      <p><strong>Next Upgrade:</strong> AI-driven monitoring, AIOps, security analytics</p>
+    </div>
+
+    <!-- TOOLS MATRIX -->
+    <div class="section">
+      <h2>🧰 Tools & Platforms Matrix</h2>
+      <table>
+        <tr><th>Tool</th><th>Access Level</th><th>Status</th></tr>
+        <tr><td>Cloudflare</td><td>Admin</td><td>Active</td></tr>
+        <tr><td>Zoho ITSM / ITAM</td><td>Admin</td><td>Active</td></tr>
+        <tr><td>Cisco Meraki</td><td>Monitoring</td><td>Active</td></tr>
+        <tr><td>ThousandEyes</td><td>Monitoring</td><td>Active</td></tr>
+        <tr><td>Yotta Backup</td><td>Hands-on</td><td>Active</td></tr>
+      </table>
+    </div>
+
+        <!-- PENDING & NEXT GOALS -->
+    <div class="section">
+      <h2>🛠️ Pending Skills & Next Goals</h2>
+      <ul>
+        <li>AWS Certification (Cloud Practitioner → Security Specialty)</li>
+        <li>Firewall Hands-on (Palo Alto / FortiGate)</li>
+        <li>AI-driven Security Monitoring (AIOps)</li>
+        <li>Docker & Kubernetes Production Exposure</li>
+        <li>ITIL 4 Certification</li>
       </ul>
     </div>
-  </div>
-</section>
 
-<section id="labs" class="section">
-  <h2>🧪 Hands-on Labs & Roadmap</h2>
-  <div class="cards">
-    <div class="card"><h3>🔥 Firewall</h3>
-      <ul>
-        <li>✔ Sophos – Rules, NAT, VPN, Web Filtering</li>
-        <li>📘 Palo Alto – Zones, Policies (Planned)</li>
-        <li>📘 FortiGate – UTM, IPS, VPN (Planned)</li>
-      </ul>
+    <!-- CAREER TARGET -->
+    <div class="section">
+      <h2>🎯 Career Target (12–24 Months)</h2>
+      <p><strong>Target Roles:</strong> IT Infrastructure Manager, Security Operations Lead, Cloud Security Engineer</p>
+      <p><strong>Expected Salary Band:</strong> ₹18–25 LPA</p>
     </div>
-    <div class="card"><h3>☁️ AWS</h3>
-      <ul>
-        <li>✔ IAM, MFA, Roles</li>
-        <li>✔ VPC, Subnets, Security Groups</li>
-        <li>📘 EC2, S3, Billing (Next)</li>
-      </ul>
-    </div>
-  </div>
-</section>
 
-<section id="certs" class="section">
-  <h2>🎓 Certifications</h2>
-  <table class="table">
-    <tr><th>Certification</th><th>Year</th><th>Proof</th></tr>
-    <tr><td>AWS Cloud Practitioner</td><td>2024</td><td><a href="certificates/aws-cloud-practitioner.pdf">📎 View</a></td></tr>
-    <tr><td>Cloudflare OEM Training</td><td>2024</td><td><a href="certificates/cloudflare.pdf">📎 View</a></td></tr>
-  </table>
-</section>
+
+  <!-- CONTACT -->
 
 <section id="contact" class="section">
   <h2>📬 Contact</h2>
+
   <div class="card">
     <p>Use the form below to reach me directly.</p>
-    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-      <!-- Replace YOUR_FORM_ID after creating Formspree form -->
-      <input type="text" name="name" placeholder="Your Name" style="width:100%;padding:10px;margin-bottom:10px">
-      <input type="email" name="email" placeholder="Your Email" style="width:100%;padding:10px;margin-bottom:10px">
-      <textarea name="message" placeholder="Message" style="width:100%;padding:10px"></textarea><br><br>
-      <button class="download" type="submit">Send</button>
+
+    <form 
+      action="https://docs.google.com/forms/d/e/1FAIpQLSdem7TRbuUrtGdkqYZpEDBlRl2NjFB2Vq8mv9oBxXHt97dY3Q/formResponse"
+      method="POST"
+      target="_blank">
+
+      <label>Your Name</label>&nbsp;&nbsp;
+      <input type="text" name="entry.27988581" required><BR><br>
+
+      <label>Your Email </label>&nbsp;
+      <input type="email" name="entry.840210267" required><BR><br>
+
+      <label>Message</label> &nbsp;&nbsp;&nbsp;&nbsp;
+      <textarea name="entry.86688305" rows="2" required></textarea><BR>
+
+      <br><br>
+      <button type="submit">Send</button>
     </form>
   </div>
 </section>
 
-</div>
 
 <footer>
   Living Resume & Personal Website | © Arvind Sharma
