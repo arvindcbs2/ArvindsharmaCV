@@ -1,194 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Arvind Sharma | IT Infrastructure & Security Professional</title>
-  <style>
-body{font-family:Arial,Helvetica,sans-serif;background:#f4f6f8;margin:0;padding:0;color:#333}
-section{padding:25px;margin:15px;background:#fff;border-radius:8px}
-.card{background:#ffffff;border-radius:10px;padding:15px;box-shadow:0 4px 10px rgba(0,0,0,0.08)}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arvind Sharma | Senior IT Executive</title>
+<style>
+body{margin:0;font-family:Inter,Arial,Helvetica,sans-serif;background:#f5f7fb;color:#1f2937}
+.topnav{display:flex;align-items:center;gap:18px;padding:14px 30px;background:#0b5ed7;color:#fff;position:sticky;top:0;z-index:100}
+.topnav a{color:#fff;text-decoration:none;font-weight:500;display:flex;align-items:center;gap:6px}
+.container{max-width:1200px;margin:auto;padding:25px}
+.header-card{display:grid;grid-template-columns:120px 1fr;gap:20px;background:#fff;border-radius:14px;padding:25px;box-shadow:0 8px 24px rgba(0,0,0,.08)}
+.header-card img{width:110px;height:110px;border-radius:50%;object-fit:cover}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:25px}
+.card{background:#fff;border-radius:14px;padding:20px;box-shadow:0 6px 18px rgba(0,0,0,.08)}
 .card h3{margin-top:0}
-a{text-decoration:none}
+.badge{display:inline-block;background:#e5edff;color:#0b5ed7;padding:4px 10px;border-radius:999px;font-size:12px;margin:4px 4px 0 0}
+.section{margin-top:35px}
+.timeline{border-left:3px solid #0b5ed7;padding-left:20px}
+.timeline-item{margin-bottom:25px}
+.table{width:100%;border-collapse:collapse}
+.table th,.table td{padding:10px;border-bottom:1px solid #e5e7eb;text-align:left}
+.download{background:#0b5ed7;color:#fff;border:none;padding:12px 18px;border-radius:8px;cursor:pointer}
+footer{text-align:center;padding:30px;color:#6b7280}
 </style>
 </head>
 <body>
 
-<header>
-  <table style="width:100%">
-    <tr>
-      <td style="width:120px;vertical-align:top">
-        <!-- Profile Photo -->
-        <img src="profile.jpg" alt="Arvind Sharma" style="width:100px;height:100px;border-radius:50%;border:3px solid #fff;">
-      </td>
-      <td>
-        <h1>Arvind Sharma</h1>
-        <p>Senior IT Executive | Infrastructure • Security • Cloud • Automation</p>
-        <p>Mira Road East, Mumbai | +91-9594406284 | arvindcbs2@gmail.com</p>
-      </td>
-    </tr>
-  </table>
-  <table style="width:100%;margin-top:15px;background:#07456f;border-radius:6px">
-    <tr style="text-align:center">
-      <td><a href="#summary" style="color:#fff">Summary</a></td>
-      <td><a href="#skills" style="color:#fff">Skills</a></td>
-      <td><a href="#experience" style="color:#fff">Experience</a></td>
-      <td><a href="#projects" style="color:#fff">Projects</a></td>
-      <td><a href="#certifications" style="color:#fff">Certifications</a></td>
-      <td><a href="#firewall" style="color:#fff">Firewall</a></td>
-      <td><a href="#ai" style="color:#fff">AI</a></td>
-      <td><a href="#learning" style="color:#fff">Learning</a></td>
-      <td><a href="#contact" style="color:#fff">Contact</a></td>
-    </tr>
-  </table>
-</header>
+<div class="topnav">
+  <a href="#summary">📄 Resume</a>
+  <a href="#skills">🧠 Skills</a>
+  <a href="#experience">💼 Experience</a>
+  <a href="#labs">🧪 Labs</a>
+  <a href="#certs">🎓 Certs</a>
+  <a href="#contact">📬 Contact</a>
+</div>
 
 <div class="container">
 
-<section id="summary">
-  <h2>Professional Summary</h2>
-  <p>Senior IT Executive with 8+ years of experience managing enterprise IT infrastructure, security platforms, and IT service delivery within the shipping & logistics domain. Strong background in Cloudflare administration, cybersecurity ownership (VAPT), ITSM operations, automation using PowerShell, and backup governance. Actively upskilling in cloud, firewall technologies, and AI-driven IT operations.</p>
-</section>
-
-<section id="skills">
-  <h2>🧩 Core Skills Overview</h2>
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:15px">
-    <div class="card">🔐 <strong>Network & Security</strong><br>Meraki, Sophos, Cloudflare, SSL, VAPT</div>
-    <div class="card">☁️ <strong>Cloud</strong><br>AWS (Cloud Practitioner Certified), Cloudflare</div>
-    <div class="card">🖥️ <strong>IT Operations</strong><br>Zoho ITSM/ITAM, GSuite, Patch Mgmt</div>
-    <div class="card">🤖 <strong>Automation & AI</strong><br>PowerShell, AI-assisted Ops</div>
+<section id="summary" class="header-card">
+  <img src="profile.jpg" alt="Arvind Sharma">
+  <div>
+    <h1>Arvind Sharma</h1>
+    <p><strong>Senior IT Executive</strong> | Infrastructure • Security • Cloud • Automation</p>
+    <p>Mumbai, India | 📧 arvindcbs2@gmail.com | 🔗 <a href="https://www.linkedin.com/in/arvindcbs2/" target="_blank">LinkedIn</a> | 💻 <a href="https://github.com/arvindcbs2" target="_blank">GitHub</a></p>
+    <button class="download">⬇ Download 1–2 Page PDF Resume</button>
   </div>
 </section>
 
-<section id="experience">
-  <h2>Professional Experience</h2>
-  <h3>J M Baxi Group — Senior IT Executive (Oct 2018 – Present)</h3>
-  <ul>
-    <li>Promoted from Executive to Senior IT Executive based on performance and leadership.</li>
-    <li>Maintained 99.9% uptime for business-critical logistics systems.</li>
-    <li>Cloudflare administrator: policy creation, firewall rules, temporary exceptions, access control.</li>
-    <li>Completed VAPT remediation and web application security ownership.</li>
-    <li>Managed SSL renewals (5) across 10 domains.</li>
-    <li>Handled 20–30 ITSM tickets daily via Zoho ITSM (Admin).</li>
-    <li>Ensured 100% end-user backup coverage using Yotta with recovery validation.</li>
-  </ul>
-
-  <h3>Caliber Infosolutions — IT Support Engineer (Jul 2017 – Sep 2018)</h3>
-  <ul>
-    <li>L1/L2 support for hardware, software, and networking.</li>
-    <li>Remote troubleshooting and user onboarding.</li>
-  </ul>
-
-  <h3>Kamuna Credit Co-operative Society — IT & Hardware Engineer (Feb 2015 – Jul 2017)</h3>
-  <ul>
-    <li>System upgrades, hardware troubleshooting, server-client alignment.</li>
-  </ul>
+<section id="skills" class="section">
+  <h2>🧠 Core Skills</h2>
+  <div class="cards">
+    <div class="card"><h3>🔐 Security</h3>Cloudflare (Admin), Sophos Firewall, SSL, VAPT, Upguard<br><span class="badge">Hands-on</span></div>
+    <div class="card"><h3>☁️ Cloud</h3>AWS (Cloud Practitioner Certified), GSuite Admin<br><span class="badge">Certified</span></div>
+    <div class="card"><h3>🖥️ IT Operations</h3>Zoho ITSM/ITAM, Patch Mgmt, Yotta Backup<br><span class="badge">Owner</span></div>
+    <div class="card"><h3>🤖 Automation & AI</h3>PowerShell, AI-assisted Ops<br><span class="badge">Applied</span></div>
+  </div>
 </section>
 
-<section id="projects">
-  <h2>Projects & Automation</h2>
-  <h3>PowerShell Bulk AD User Creation (April 2023)</h3>
-  <p>🔗 <a href="https://github.com/arvindcbs2/Add-NewUsersBulk.git" target="_blank">GitHub Repository</a></p>
-  <ul>
-    <li>Developed PowerShell script to create bulk Active Directory users using CSV input.</li>
-    <li>Automated OU placement, user attributes, and profile creation.</li>
-    <li>Reduced manual onboarding effort and improved provisioning accuracy.</li>
-  </ul>
+<section id="experience" class="section">
+  <h2>💼 Professional Experience</h2>
+  <div class="timeline">
+    <div class="timeline-item">
+      <h3>Senior IT Executive – Shipping & Logistics Company</h3>
+      <p><em>2017 – Present</em></p>
+      <ul>
+        <li>Handled <strong>20–30 ITSM tickets/day</strong> ensuring SLA compliance</li>
+        <li>Administered <strong>Cloudflare WAF, Zero Trust & security policies</strong></li>
+        <li>Completed <strong>VAPT remediation</strong> for corporate website</li>
+        <li>Managed <strong>100% endpoint backup coverage</strong> using Yotta</li>
+        <li>Automated <strong>bulk AD user onboarding</strong> using PowerShell</li>
+        <li>Managed <strong>5 SSL renewals across 10 domains</strong></li>
+        <li>Deployed & troubleshot <strong>Cisco Meraki APs</strong></li>
+      </ul>
+    </div>
+  </div>
 </section>
 
-<section id="certifications">
-  <h2>Certifications & Education</h2>
-  <table>
-    <tr><th>Certification / Education</th><th>Status</th><th>Year</th></tr>
-    <tr><td>Certified Computer Course</td><td>Completed</td><td>2011–2013</td></tr>
-    <tr><td>B.Com (Mumbai University)</td><td>Completed</td><td>2015</td></tr>
-    <tr><td>CCNA (Associate Level)</td><td>Completed</td><td>2016</td></tr>
-    <tr><td>Diploma in Hardware & Networking</td><td>Completed</td><td>2016</td></tr>
-    <tr><td>AWS Cloud Practitioner</td><td>Planned</td><td>2025</td></tr>
-    <tr><td>ITIL 4 Foundation</td><td>Planned</td><td>2025</td></tr>
+<section id="labs" class="section">
+  <h2>🧪 Hands-on Labs & Roadmap</h2>
+  <div class="cards">
+    <div class="card"><h3>🔥 Firewall</h3>
+      <ul>
+        <li>✔ Sophos – Rules, NAT, VPN, Web Filtering</li>
+        <li>📘 Palo Alto – Zones, Policies (Planned)</li>
+        <li>📘 FortiGate – UTM, IPS, VPN (Planned)</li>
+      </ul>
+    </div>
+    <div class="card"><h3>☁️ AWS</h3>
+      <ul>
+        <li>✔ IAM, MFA, Roles</li>
+        <li>✔ VPC, Subnets, Security Groups</li>
+        <li>📘 EC2, S3, Billing (Next)</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="certs" class="section">
+  <h2>🎓 Certifications</h2>
+  <table class="table">
+    <tr><th>Certification</th><th>Year</th><th>Proof</th></tr>
+    <tr><td>AWS Cloud Practitioner</td><td>2024</td><td><a href="certificates/aws-cloud-practitioner.pdf">📎 View</a></td></tr>
+    <tr><td>Cloudflare OEM Training</td><td>2024</td><td><a href="certificates/cloudflare.pdf">📎 View</a></td></tr>
   </table>
 </section>
 
-<section id="firewall">
-  <h2>🔥 Firewall & AWS Hands-on Labs</h2>
+<section id="contact" class="section">
+  <h2>📬 Contact</h2>
   <div class="card">
-    <h3>🔥 Firewall Labs</h3>
-    <ul>
-      <li>✔ Sophos Firewall – Rules, NAT, VPN, Web Filtering (Hands-on)</li>
-      <li>📘 Palo Alto – Zones, Policies, NAT (Planned)</li>
-      <li>📘 FortiGate – UTM, IPS, VPN (Planned)</li>
-    </ul>
+    <p>Use the form below to reach me directly.</p>
+    <form action="https://formspree.io/f/xxxxxx" method="POST">
+      <input type="text" name="name" placeholder="Your Name" style="width:100%;padding:10px;margin-bottom:10px">
+      <input type="email" name="email" placeholder="Your Email" style="width:100%;padding:10px;margin-bottom:10px">
+      <textarea name="message" placeholder="Message" style="width:100%;padding:10px"></textarea><br><br>
+      <button class="download" type="submit">Send</button>
+    </form>
   </div>
-  <div class="card">
-    <h3>☁️ AWS Labs (Cloud Practitioner Certified)</h3>
-    <ul>
-      <li>✔ AWS Global Infrastructure & Core Services</li>
-      <li>✔ IAM Users, Roles, MFA (Hands-on)</li>
-      <li>✔ VPC, Subnets, Security Groups</li>
-      <li>📘 EC2, S3, Billing & Cost Explorer (Planned)</li>
-    </ul>
-  </div>
-</section>
-
-<section id="ai">
-  <h2>AI Tools & Use Cases</h2>
-  <table>
-    <tr><th>Tool</th><th>Level</th><th>Usage</th></tr>
-    <tr><td>ChatGPT</td><td>Intermediate</td><td>SOPs, PowerShell logic, firewall explanations</td></tr>
-    <tr><td>AI Documentation</td><td>Intermediate</td><td>Audit responses, IT policies</td></tr>
-    <tr><td>AI Troubleshooting</td><td>Basic</td><td>Error & log analysis support</td></tr>
-  </table>
-</section>
-
-<section id="learning">
-  <h2>📅 Monthly Learning Log</h2>
-  <table>
-    <tr><th>Month</th><th>Focus Area</th><th>Status</th><th>Notes</th></tr>
-    <tr><td>Apr 2025</td><td>Cloudflare WAF & Zero Trust</td><td>In Progress</td><td>Policy tuning & rule optimization</td></tr>
-    <tr><td>May 2025</td><td>Firewall Theory (Palo Alto / FortiGate)</td><td>Planned</td><td>NAT, policies, VPN</td></tr>
-    <tr><td>Jun 2025</td><td>AWS IAM & Security</td><td>Planned</td><td>Hands-on labs</td></tr>
-  </table>
-</section>
-
-<section id="firewall">
-  <h2>🔥 Firewall Lab Checklist</h2>
-  <table>
-    <tr><th>Firewall</th><th>Lab Task</th><th>Target Date</th><th>Status</th></tr>
-    <tr><td>Sophos</td><td>Rule creation, NAT, Web filtering</td><td>Completed</td><td>✔ Done</td></tr>
-    <tr><td>Palo Alto</td><td>Security policies & NAT (theory + lab)</td><td>May 2025</td><td>Planned</td></tr>
-    <tr><td>FortiGate</td><td>VPN & UTM configuration</td><td>Jun 2025</td><td>Planned</td></tr>
-  </table>
-</section>
-
-<section id="career">
-  <h2>Career Target</h2>
-  <p><strong>Target Roles:</strong> IT Infrastructure Manager, Security Operations Lead, Cloud Security Engineer</p>
-  <p><strong>Target Salary Band:</strong> ₹18–25 LPA</p>
 </section>
 
 </div>
 
-<section id="contact">
-  <h2>📬 Contact & Profiles</h2>
-  <p>
-    🔗 <a href="https://www.linkedin.com" target="_blank">LinkedIn</a> |
-    💻 <a href="https://github.com/arvindcbs2" target="_blank">GitHub</a>
-  </p>
-  <form>
-    <label>Name:</label><br>
-    <input type="text" style="width:100%;padding:8px"><br><br>
-    <label>Email:</label><br>
-    <input type="email" style="width:100%;padding:8px"><br><br>
-    <label>Message:</label><br>
-    <textarea style="width:100%;padding:8px"></textarea><br><br>
-    <button type="submit">Send</button>
-  </form>
-  <br>
-  <button onclick="window.print()">⬇ Download PDF Resume</button>
-</section>
-
 <footer>
-  <p>Living Resume | GitHub Pages Ready | © Arvind Sharma</p>
+  Living Resume & Personal Website | © Arvind Sharma
 </footer>
 
 </body>
