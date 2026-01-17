@@ -475,16 +475,31 @@
       target="_blank">
 
       <label>Your Name</label>&nbsp;&nbsp;
-      <input type="text" name="entry.27988581" required><BR><br>
+      <input type="text" name="entry.27988581" required><br>
 
       <label>Your Email </label>&nbsp;
-      <input type="email" name="entry.840210267" required><BR><br>
+      <input type="email" name="entry.840210267" required><br>
 
       <label>Message</label> &nbsp;&nbsp;&nbsp;&nbsp;
       <textarea name="entry.86688305" rows="2" required></textarea><BR>
 
       <br>
-      <button type="submit">Send</button>
+<button type="submit"
+  style="
+    padding: 8px 16px;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+    background: linear-gradient(#1e293b);
+    color: #fff;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  "
+  onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 6px 15px rgba(0,0,0,0.2)';"
+  onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none';">
+  Send
+</button>
     </form>
   </div>
 </section>
