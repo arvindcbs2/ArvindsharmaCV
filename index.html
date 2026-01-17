@@ -5,23 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Arvind Sharma | IT Infrastructure & Security Professional</title>
   <style>
-    body {font-family: 'Segoe UI', Tahoma, Arial, sans-serif; margin:0; background:#f4f6f9; color:#2c3e50;}
-    header {background:#0a3d62; color:#fff; padding:30px; position:sticky; top:0; z-index:10;}
-    header h1 {margin:0;}
-    header p {margin:5px 0 0;}
-    nav a {color:#dff9fb; margin-right:15px; text-decoration:none; font-weight:600;}
-    nav a:hover {text-decoration:underline;}
-    .container {max-width:1100px; margin:auto; padding:20px;}
-    section {background:#fff; margin-bottom:20px; padding:25px; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.08);}    
-    h2 {color:#0a3d62; border-bottom:2px solid #0a3d62; padding-bottom:6px;}
-    table {width:100%; border-collapse:collapse; margin-top:10px;}
-    th, td {border:1px solid #ddd; padding:10px; text-align:left;}
-    th {background:#0a3d62; color:#fff;}
-    .progress {background:#ddd; border-radius:20px; height:18px; overflow:hidden;}
-    .progress span {display:block; height:100%; background:#38ada9; color:#fff; font-size:12px; text-align:right; padding-right:5px;}
-    .tag {display:inline-block; background:#e1ecf4; padding:5px 10px; border-radius:5px; margin:3px; font-size:12px;}
-    footer {text-align:center; padding:20px; color:#777;}
-  </style>
+body{font-family:Arial,Helvetica,sans-serif;background:#f4f6f8;margin:0;padding:0;color:#333}
+section{padding:25px;margin:15px;background:#fff;border-radius:8px}
+.card{background:#ffffff;border-radius:10px;padding:15px;box-shadow:0 4px 10px rgba(0,0,0,0.08)}
+.card h3{margin-top:0}
+a{text-decoration:none}
+</style>
 </head>
 <body>
 
@@ -62,16 +51,13 @@
 </section>
 
 <section id="skills">
-  <h2>Skill Progress Overview</h2>
-  <table>
-    <tr><th>Skill Area</th><th>Progress</th><th>Level</th></tr>
-    <tr><td>IT Infrastructure & Support</td><td><div class="progress"><span style="width:95%">95%</span></div></td><td>Advanced</td></tr>
-    <tr><td>Cloudflare & Web Security</td><td><div class="progress"><span style="width:85%">85%</span></div></td><td>Advanced</td></tr>
-    <tr><td>Cybersecurity & VAPT</td><td><div class="progress"><span style="width:75%">75%</span></div></td><td>Intermediate+</td></tr>
-    <tr><td>AWS Cloud</td><td><div class="progress"><span style="width:50%">50%</span></div></td><td>Learning</td></tr>
-    <tr><td>Firewall Technologies</td><td><div class="progress"><span style="width:55%">55%</span></div></td><td>Operational + Theory Pending</td></tr>
-    <tr><td>AI for IT & Security</td><td><div class="progress"><span style="width:35%">35%</span></div></td><td>Applied Beginner</td></tr>
-  </table>
+  <h2>🧩 Core Skills Overview</h2>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:15px">
+    <div class="card">🔐 <strong>Network & Security</strong><br>Meraki, Sophos, Cloudflare, SSL, VAPT</div>
+    <div class="card">☁️ <strong>Cloud</strong><br>AWS (Cloud Practitioner Certified), Cloudflare</div>
+    <div class="card">🖥️ <strong>IT Operations</strong><br>Zoho ITSM/ITAM, GSuite, Patch Mgmt</div>
+    <div class="card">🤖 <strong>Automation & AI</strong><br>PowerShell, AI-assisted Ops</div>
+  </div>
 </section>
 
 <section id="experience">
@@ -124,15 +110,24 @@
 </section>
 
 <section id="firewall">
-  <h2>🔥 Firewall & AWS Lab Checklist</h2>
-  <table>
-    <tr><th>Technology</th><th>Lab / Task</th><th>Target Date</th><th>Status</th></tr>
-    <tr><td>Sophos Firewall</td><td>Rules, NAT, Web Filtering, VPN</td><td>Completed</td><td>✔ Done</td></tr>
-    <tr><td>Palo Alto</td><td>Security Policies, Zones, NAT (Theory + Lab)</td><td>May 2025</td><td>Planned</td></tr>
-    <tr><td>FortiGate</td><td>UTM, IPS, VPN Configuration</td><td>Jun 2025</td><td>Planned</td></tr>
-    <tr><td>AWS</td><td>VPC, Subnets, Security Groups, NACL</td><td>Jun 2025</td><td>Planned</td></tr>
-    <tr><td>AWS</td><td>IAM Roles, Policies, MFA</td><td>Jul 2025</td><td>Planned</td></tr>
-  </table>
+  <h2>🔥 Firewall & AWS Hands-on Labs</h2>
+  <div class="card">
+    <h3>🔥 Firewall Labs</h3>
+    <ul>
+      <li>✔ Sophos Firewall – Rules, NAT, VPN, Web Filtering (Hands-on)</li>
+      <li>📘 Palo Alto – Zones, Policies, NAT (Planned)</li>
+      <li>📘 FortiGate – UTM, IPS, VPN (Planned)</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>☁️ AWS Labs (Cloud Practitioner Certified)</h3>
+    <ul>
+      <li>✔ AWS Global Infrastructure & Core Services</li>
+      <li>✔ IAM Users, Roles, MFA (Hands-on)</li>
+      <li>✔ VPC, Subnets, Security Groups</li>
+      <li>📘 EC2, S3, Billing & Cost Explorer (Planned)</li>
+    </ul>
+  </div>
 </section>
 
 <section id="ai">
