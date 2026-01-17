@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arvind Sharma | Senior IT Executive</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            background-color: #f5f7fa;
+            color: #333;
+            margin-left: 240px;           /* ← Space for sidebar */
+            min-height: 100vh;
+            transition: margin-left 0.4s ease;
+        }
+
+        /* Floating Sidebar - File Explorer Style */
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 240px;
+            background: #0f172a;
+            color: #e2e8f0;
+            padding: 25px 18px;
+            overflow-y: auto;
+            z-index: 1000;
+            box-shadow: 3px 0 20px rgba(0,0,0,0.35);
+            border-right: 1px solid #1e293b;
+            transition: width 0.4s ease;
+        }
+
+        .sidebar:hover {
+            width: 260px;
+        }
+
+        .sidebar h3 {
+            color: #60a5fa;
+            font-size: 1.15rem;
+            margin-bottom: 18px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #334155;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .file-tree {
+            font-size: 0.97rem;
+        }
+
+        .folder {
+            color: #93c5fd;
+            font-weight: bold;
+            margin: 14px 0 6px;
+            display: block;
+        }
+
+        .file {
+            color: #cbd5e1;
+            margin: 6px 0 6px 20px;
+            text-decoration: none;
+            display: block;
+            transition: all 0.2s;
+        }
+
+        .file:hover,
+        .file.active {
+            color: #60a5fa;
+            transform: translateX(6px);
+        }
+
+        /* Main container */
+        .container {
+            max-width: 960px;
+            margin: 30px auto;
+            background: white;
+            padding: 35px;
+            border-radius: 10px;
+            box-shadow: 0 4px 25px rgba(0,0,0,0.08);
+        }
+
+        h1, h2, h3 {
+            color: #1e293b;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+        }
+
+        th, td {
+            border: 1px solid #e2e8f0;
+            padding: 12px 15px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f1f5f9;
+            color: #334155;
+        }
+
+        /* Modern Contact Buttons */
+        .contact-actions {
+            margin: 35px 0;
+            text-align: center;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 34px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            border-radius: 8px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 0 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .btn-send {
+            background: #2563eb;
+            color: white;
+            border: none;
+        }
+
+        .btn-download {
+            background: #16a34a;
+            color: white;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+        }
+
+        /* Mobile - hide sidebar */
+        @media (max-width: 992px) {
+            body {
+                margin-left: 0;
+            }
+            .sidebar {
+                width: 0;
+                padding: 0;
+                overflow: hidden;
+            }
+            .container {
+                padding: 20px;
+                margin: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Floating File Structure Sidebar -->
+    <aside class="sidebar">
+        <h3>Portfolio Structure</h3>
+        <div class="file-tree">
+            <span class="folder">📁 Arvind_Sharma_CV/</span>
+            <a href="#" class="file active">🏠 index.html</a>
+            <a href="#skills" class="file">⚡ skills-progress</a>
+            <a href="#certifications" class="file">🏆 certifications</a>
+            <a href="#projects" class="file">🛠 projects-lab</a>
+            <a href="#firewall" class="file">🔥 firewall-learning</a>
+            <a href="#ai-tools" class="file">🤖 ai-use-cases</a>
+            
+            <span class="folder">📁 assets/</span>
+            <a href="Arvind_Sharma_CV_2025.pdf" class="file" download>📄 Arvind_Sharma_CV.pdf</a>
+            <a href="style.css" class="file">🎨 style.css</a>
+        </div>
+    </aside>
+
+    <div class="container">
+        <h1>Arvind Sharma</h1>
+        <h2>Senior IT Executive | Infrastructure • Security • Cloud • Automation</h2>
+        <p>Virar West, Mumbai | +91-9594406284 | arvindcbs2@gmail.com 
+            <br><a href="https://www.linkedin.com/in/arvindcbs2/">LinkedIn</a> | 
+            <a href="https://github.com/arvindcbs2">GitHub</a>
+        </p>
+
+        <h2>Day 1 Baseline</h2>
+        <table>
+            <tr><th>Area</th><th>Status</th></tr>
+            <tr><td>Role</td><td>IT Support / Hardware Engineer</td></tr>
+            <tr><td>Skills</td><td>Desktop Support, Hardware, Basic Networking</td></tr>
+            <tr><td>Security Knowledge</td><td>Basic OS & Antivirus Security</td></tr>
+        </table>
+
+        <h2>Current Professional Profile (2025)</h2>
+        <p>Senior IT Executive with 8+ years of experience managing enterprise IT operations, security, and cloud services in corporate environments. Experienced in owning end-to-end IT operations, driving security improvements, and delivering reliable, business-aligned infrastructure.</p>
+        <p>Proven track record in operational efficiency through automation, effective handling of security assessments and remediation, and managing modern IT platforms across cloud, network, and endpoint environments. Recognized for a security-first mindset, strong problem-solving abilities, and a disciplined approach to continuous professional growth.</p>
+        <p>Cloudflare Admin | Zoho ITSM Admin | Cisco Meraki | VAPT Ownership | Backup & DR</p>
+
+        <!-- Your other sections remain exactly the same ↓ -->
+
+        <h2>Skill Progress Tracker</h2>
+        <table>
+            <tr><th>Skill Area</th><th>Progress</th><th>Level</th></tr>
+            <tr><td>IT Infrastructure & Support</td><td>95%</td><td>Advanced</td></tr>
+            <tr><td>Cloudflare & Web Security</td><td>80%</td><td>Advanced</td></tr>
+            <tr><td>Cybersecurity & VAPT</td><td>70%</td><td>Intermediate</td></tr>
+            <tr><td>AWS Cloud</td><td>45%</td><td>Learning</td></tr>
+            <tr><td>Firewall Concepts</td><td>40%</td><td>Learning</td></tr>
+            <tr><td>AI for IT & Security</td><td>30%</td><td>Beginner</td></tr>
+        </table>
+
+        <h2>Certification Tracker</h2>
+        <!-- ... your original certification table remains here ... -->
+
+        <h2>Projects & Lab Proof</h2>
+        <!-- ... your original projects section remains here ... -->
+
+        <!-- Add id to sections if you want better sidebar navigation -->
+        <h2 id="firewall">Firewall Skills Progress</h2>
+        <!-- ... keep your firewall table ... -->
+
+        <h2 id="ai-tools">AI Tools & Practical Use Cases</h2>
+        <!-- ... keep your AI table ... -->
+
+        <!-- Updated Contact Section -->
+        <h2 id="contact">Contact Me</h2>
+        <p>Feel free to reach out using the form below or download my latest CV.</p>
+
+        <!-- Your original form (you can later connect it to Google Form / Formspree etc) -->
+        <form class="contact-form">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" rows="5" required></textarea>
+            
+            <div class="contact-actions">
+                <button type="submit" class="btn btn-send">✉️ Send Message</button>
+                <a href="Arvind_Sharma_CV_2025.pdf" download class="btn btn-download">⬇️ Download CV</a>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>
