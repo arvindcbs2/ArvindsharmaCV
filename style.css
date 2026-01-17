@@ -73,14 +73,3 @@ body {
     margin-left: 0;
   }
 }
-
-.contact-buttons button,
-.contact-buttons a {
-  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-}
-
-.contact-buttons button:hover,
-.contact-buttons a:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-}
