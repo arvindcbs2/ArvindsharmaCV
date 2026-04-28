@@ -1,39 +1,131 @@
-<style>
-    :root {
-        --primary: #1a73e8;
-        --bg-light: #f8f9fa;
-        --text-main: #3c4043;
-        --border: #dadce0;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business OS - Tasks</title>
+    <style>
+        :root {
+            --primary: #1a73e8;
+            --bg-light: #f1f3f4;
+            --text-main: #3c4043;
+            --border: #dadce0;
+        }
+
+        body { 
+            margin: 0; font-family: 'Google Sans', Roboto, Arial, sans-serif; 
+            background-color: white; color: var(--text-main); display: flex; height: 100vh;
+        }
+
+        /* Sidebar Navigation */
+        nav {
+            width: 250px; background: var(--bg-light); border-right: 1px solid var(--border);
+            padding: 20px 0; display: flex; flex-direction: column;
+        }
+
+        .nav-item {
+            padding: 12px 24px; cursor: pointer; transition: 0.2s; font-size: 14px;
+            font-weight: 500; color: #5f6368;
+        }
+
+        .nav-item:hover { background: #e8eaed; }
+        .nav-item.active { background: #e8f0fe; color: var(--primary); border-radius: 0 20px 20px 0; }
+
+        /* Main Workspace */
+        main { flex-grow: 1; display: flex; flex-direction: column; align-items: center; padding-top: 40px; }
+        .app-card { width: 90%; max-width: 700px; }
+
+        header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        h1 { font-size: 22px; font-weight: 400; }
+
+        /* Task Input Area */
+        .add-task-box {
+            display: flex; align-items: center; background: #fff;
+            border: 1px solid var(--border); border-radius: 8px; padding: 10px 15px;
+            box-shadow: 0 1px 2px rgba(60,64,67,0.1); transition: box-shadow 0.3s;
+        }
+
+        .add-task-box:focus-within { box-shadow: 0 1px 6px rgba(32,33,36,0.28); border-color: transparent; }
+
+        input { border: none; outline: none; flex-grow: 1; font-size: 16px; margin-left: 10px; }
+
+        /* Task List Style */
+        .task-list { margin-top: 20px; }
+        .task-item {
+            display: flex; align-items: center; padding: 12px 8px;
+            border-bottom: 1px solid #f1f3f4; transition: background 0.1s;
+        }
+        .task-item:hover { background: #f8f9fa; }
+
+        .circle-check {
+            width: 20px; height: 20px; border: 2px solid #5f6368;
+            border-radius: 50%; cursor: pointer; transition: 0.2s;
+        }
+        .circle-check:hover { border-color: var(--primary); background: #e8f0fe; }
+
+        .task-text { margin-left: 15px; font-size: 14px; flex-grow: 1; }
+        .completed .task-text { text-decoration: line-through; color: #80868b; }
+        .completed .circle-check { background: var(--primary); border-color: var(--primary); }
+
+        .badge { font-size: 11px; padding: 2px 8px; border-radius: 10px; background: #eee; color: #666; }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-item active">Tasks</div>
+    <div class="nav-item">KRAs (Coming Soon)</div>
+    <div class="nav-item">KPI Dashboard</div>
+    <div class="nav-item">Projects</div>
+</nav>
+
+<main>
+    <div class="app-card">
+        <header>
+            <h1>My Business Tasks</h1>
+            <span style="color: #5f6368; font-size: 12px;">April 2026</span>
+        </header>
+
+        <div class="add-task-box">
+            <span style="color: var(--primary); font-size: 24px;">+</span>
+            <input type="text" id="taskInput" placeholder="Add a task to 'Business Tasks'">
+        </div>
+
+        <div class="task-list" id="taskList">
+            </div>
+    </div>
+</main>
+
+<script>
+    const input = document.getElementById('taskInput');
+    const list = document.getElementById('taskList');
+
+    input.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter' && input.value.trim() !== "") {
+            createTask(input.value);
+            input.value = "";
+        }
+    });
+
+    function createTask(text) {
+        const div = document.createElement('div');
+        div.className = 'task-item';
+        div.innerHTML = `
+            <div class="circle-check"></div>
+            <div class="task-text">${text}</div>
+            <div class="badge">Business</div>
+        `;
+
+        div.querySelector('.circle-check').addEventListener('click', function() {
+            div.classList.toggle('completed');
+        });
+
+        list.prepend(div);
     }
+</script>
 
-    body { 
-        margin: 0; font-family: sans-serif; 
-        background-color: white; color: var(--text-main); 
-        display: flex; flex-direction: column; height: 100vh;
-    }
-
-    /* Tablet & Desktop Layout */
-    @media (min-width: 768px) {
-        body { flex-direction: row; }
-        nav { width: 250px; height: 100vh; border-right: 1px solid var(--border); }
-    }
-
-    /* Mobile Navigation (Top Bar) */
-    nav {
-        background: var(--bg-light); border-bottom: 1px solid var(--border);
-        padding: 10px; display: flex; overflow-x: auto; white-space: nowrap;
-    }
-
-    .nav-item {
-        padding: 8px 16px; cursor: pointer; font-size: 14px;
-        font-weight: 500; color: #5f6368; border-radius: 20px; margin-right: 5px;
-    }
-
-    .nav-item.active { background: #e8f0fe; color: var(--primary); }
-
-    /* Main Workspace */
-    main { flex-grow: 1; padding: 20px; display: flex; flex-direction: column; align-items: center; }
-    .app-card { width: 100%; max-width: 700px; }
+</body>
+</html>
 
     header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
     h1 { font-size: 20px; font-weight: 500; margin: 0; }
