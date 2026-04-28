@@ -3,127 +3,178 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Business OS - Tasks</title>
+    <title>Business OS - Structured Tasks</title>
     <style>
         :root {
             --primary: #1a73e8;
-            --bg-light: #f1f3f4;
+            --danger: #d93025;
+            --bg-light: #f8f9fa;
             --text-main: #3c4043;
             --border: #dadce0;
         }
 
         body { 
-            margin: 0; font-family: 'Google Sans', Roboto, Arial, sans-serif; 
-            background-color: white; color: var(--text-main); display: flex; height: 100vh;
+            margin: 0; font-family: 'Segoe UI', Roboto, sans-serif; 
+            background-color: white; color: var(--text-main); 
+            display: flex; height: 100vh; overflow: hidden;
         }
 
-        /* Sidebar Navigation */
+        /* Sidebar / Folder Structure */
         nav {
-            width: 250px; background: var(--bg-light); border-right: 1px solid var(--border);
-            padding: 20px 0; display: flex; flex-direction: column;
+            width: 260px; background: var(--bg-light); 
+            border-right: 1px solid var(--border);
+            display: flex; flex-direction: column; padding: 20px 0;
+        }
+
+        .section-label { 
+            font-size: 11px; font-weight: 700; color: #70757a; 
+            padding: 10px 24px; text-transform: uppercase; letter-spacing: 1px;
         }
 
         .nav-item {
-            padding: 12px 24px; cursor: pointer; transition: 0.2s; font-size: 14px;
-            font-weight: 500; color: #5f6368;
+            padding: 10px 24px; cursor: pointer; font-size: 14px;
+            display: flex; align-items: center; color: #5f6368;
         }
 
         .nav-item:hover { background: #e8eaed; }
-        .nav-item.active { background: #e8f0fe; color: var(--primary); border-radius: 0 20px 20px 0; }
+        .nav-item.active { background: #e8f0fe; color: var(--primary); font-weight: 600; }
 
-        /* Main Workspace */
-        main { flex-grow: 1; display: flex; flex-direction: column; align-items: center; padding-top: 40px; }
-        .app-card { width: 90%; max-width: 700px; }
+        .folder-icon { margin-right: 12px; opacity: 0.7; }
 
-        header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
-        h1 { font-size: 22px; font-weight: 400; }
+        /* Main Content */
+        main { flex-grow: 1; overflow-y: auto; padding: 40px 20px; display: flex; justify-content: center; }
+        .app-container { width: 100%; max-width: 800px; }
 
-        /* Task Input Area */
-        .add-task-box {
-            display: flex; align-items: center; background: #fff;
-            border: 1px solid var(--border); border-radius: 8px; padding: 10px 15px;
-            box-shadow: 0 1px 2px rgba(60,64,67,0.1); transition: box-shadow 0.3s;
+        .task-input-card {
+            background: white; border: 1px solid var(--border);
+            border-radius: 12px; padding: 15px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
         }
 
-        .add-task-box:focus-within { box-shadow: 0 1px 6px rgba(32,33,36,0.28); border-color: transparent; }
+        .input-row { display: flex; align-items: center; margin-bottom: 10px; }
+        input[type="text"] { 
+            flex-grow: 1; border: none; outline: none; font-size: 18px; padding: 5px;
+        }
 
-        input { border: none; outline: none; flex-grow: 1; font-size: 16px; margin-left: 10px; }
+        .meta-inputs { display: flex; gap: 10px; flex-wrap: wrap; }
+        .meta-inputs input { 
+            font-size: 12px; border: 1px solid var(--border); 
+            border-radius: 4px; padding: 4px 8px; color: #5f6368;
+        }
 
-        /* Task List Style */
-        .task-list { margin-top: 20px; }
+        /* Task Items */
         .task-item {
-            display: flex; align-items: center; padding: 12px 8px;
-            border-bottom: 1px solid #f1f3f4; transition: background 0.1s;
+            display: flex; padding: 16px; border-bottom: 1px solid #eee;
+            transition: 0.2s; align-items: flex-start;
         }
-        .task-item:hover { background: #f8f9fa; }
+        .task-item:hover { background-color: #fafafa; }
+
+        .check-col { padding-top: 4px; }
+        .content-col { flex-grow: 1; margin-left: 15px; }
+
+        .task-title { font-size: 15px; margin-bottom: 4px; display: block; }
+        
+        .task-details { display: flex; gap: 15px; font-size: 12px; color: #70757a; }
+        .date-tag { display: flex; align-items: center; }
+        .deadline { color: var(--danger); font-weight: 600; }
 
         .circle-check {
-            width: 20px; height: 20px; border: 2px solid #5f6368;
-            border-radius: 50%; cursor: pointer; transition: 0.2s;
+            width: 20px; height: 20px; border: 2px solid #dadce0;
+            border-radius: 50%; cursor: pointer;
         }
-        .circle-check:hover { border-color: var(--primary); background: #e8f0fe; }
-
-        .task-text { margin-left: 15px; font-size: 14px; flex-grow: 1; }
-        .completed .task-text { text-decoration: line-through; color: #80868b; }
         .completed .circle-check { background: var(--primary); border-color: var(--primary); }
+        .completed .task-title { text-decoration: line-through; color: #80868b; }
 
-        .badge { font-size: 11px; padding: 2px 8px; border-radius: 10px; background: #eee; color: #666; }
+        @media (max-width: 768px) {
+            body { flex-direction: column; }
+            nav { width: 100%; height: auto; border-right: none; border-bottom: 1px solid var(--border); padding: 10px 0; }
+            .nav-item { padding: 8px 15px; }
+        }
     </style>
 </head>
 <body>
 
-<nav>
-    <div class="nav-item active">Tasks</div>
-    <div class="nav-item">KRAs (Coming Soon)</div>
-    <div class="nav-item">KPI Dashboard</div>
-    <div class="nav-item">Projects</div>
+<nav id="sidebar">
+    <div class="section-label">Main</div>
+    <div class="nav-item active" onclick="switchFolder('All Tasks')">Inbox</div>
+    
+    <div class="section-label">Folders / Projects</div>
+    <div class="nav-item" onclick="switchFolder('Operations')"><span class="folder-icon">📁</span> Operations</div>
+    <div class="nav-item" onclick="switchFolder('Marketing')"><span class="folder-icon">📁</span> Marketing</div>
+    <div class="nav-item" onclick="switchFolder('Sales')"><span class="folder-icon">📁</span> Sales</div>
+    
+    <div class="section-label">Analysis</div>
+    <div class="nav-item">📊 KPI Dashboard</div>
+    <div class="nav-item">🎯 KRAs</div>
 </nav>
 
 <main>
-    <div class="app-card">
-        <header>
-            <h1>My Business Tasks</h1>
-            <span style="color: #5f6368; font-size: 12px;">April 2026</span>
-        </header>
+    <div class="app-container">
+        <h2 id="viewTitle">All Tasks</h2>
 
-        <div class="add-task-box">
-            <span style="color: var(--primary); font-size: 24px;">+</span>
-            <input type="text" id="taskInput" placeholder="Add a task to 'Business Tasks'">
+        <div class="task-input-card">
+            <div class="input-row">
+                <input type="text" id="taskName" placeholder="What needs to be done?">
+                <button onclick="addTask()" style="background: var(--primary); color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer;">Add</button>
+            </div>
+            <div class="meta-inputs">
+                <label>Start: <input type="date" id="startDate"></label>
+                <label>Due: <input type="date" id="dueDate"></label>
+                <label>Deadline: <input type="date" id="deadlineDate"></label>
+            </div>
         </div>
 
-        <div class="task-list" id="taskList">
+        <div id="taskContainer">
             </div>
     </div>
 </main>
 
 <script>
-    const input = document.getElementById('taskInput');
-    const list = document.getElementById('taskList');
+    let currentFolder = "All Tasks";
 
-    input.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter' && input.value.trim() !== "") {
-            createTask(input.value);
-            input.value = "";
-        }
-    });
+    function switchFolder(name) {
+        currentFolder = name;
+        document.getElementById('viewTitle').innerText = name;
+        // Logic to filter tasks by folder would go here later
+        document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
+        event.currentTarget.classList.add('active');
+    }
 
-    function createTask(text) {
-        const div = document.createElement('div');
-        div.className = 'task-item';
-        div.innerHTML = `
-            <div class="circle-check"></div>
-            <div class="task-text">${text}</div>
-            <div class="badge">Business</div>
+    function addTask() {
+        const name = document.getElementById('taskName').value;
+        const start = document.getElementById('startDate').value;
+        const due = document.getElementById('dueDate').value;
+        const dead = document.getElementById('deadlineDate').value;
+
+        if (!name) return;
+
+        const taskHtml = `
+            <div class="task-item">
+                <div class="check-col">
+                    <div class="circle-check" onclick="toggleTask(this)"></div>
+                </div>
+                <div class="content-col">
+                    <span class="task-title">${name}</span>
+                    <div class="task-details">
+                        ${start ? `<span class="date-tag">Start: ${start}</span>` : ''}
+                        ${due ? `<span class="date-tag">Due: ${due}</span>` : ''}
+                        ${dead ? `<span class="date-tag deadline">⚠️ Deadline: ${dead}</span>` : ''}
+                        <span class="date-tag">📂 ${currentFolder}</span>
+                    </div>
+                </div>
+            </div>
         `;
 
-        div.querySelector('.circle-check').addEventListener('click', function() {
-            div.classList.toggle('completed');
-        });
+        document.getElementById('taskContainer').insertAdjacentHTML('afterbegin', taskHtml);
+        
+        // Clear inputs
+        document.getElementById('taskName').value = "";
+    }
 
-        list.prepend(div);
+    function toggleTask(el) {
+        el.closest('.task-item').classList.toggle('completed');
     }
 </script>
 
 </body>
-  </html>
-  
+</html>
