@@ -3,176 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Business OS - Structured Tasks</title>
+    <title>Business Task Tracker</title>
     <style>
         :root {
-            --primary: #1a73e8;
-            --danger: #d93025;
-            --bg-light: #f8f9fa;
-            --text-main: #3c4043;
-            --border: #dadce0;
+            --google-blue: #1a73e8;
+            --deadline-red: #d93025;
+            --text-gray: #5f6368;
         }
-
-        body { 
-            margin: 0; font-family: 'Segoe UI', Roboto, sans-serif; 
-            background-color: white; color: var(--text-main); 
-            display: flex; height: 100vh; overflow: hidden;
-        }
-
-        /* Sidebar / Folder Structure */
-        nav {
-            width: 260px; background: var(--bg-light); 
-            border-right: 1px solid var(--border);
-            display: flex; flex-direction: column; padding: 20px 0;
-        }
-
-        .section-label { 
-            font-size: 11px; font-weight: 700; color: #70757a; 
-            padding: 10px 24px; text-transform: uppercase; letter-spacing: 1px;
-        }
-
-        .nav-item {
-            padding: 10px 24px; cursor: pointer; font-size: 14px;
-            display: flex; align-items: center; color: #5f6368;
-        }
-
-        .nav-item:hover { background: #e8eaed; }
-        .nav-item.active { background: #e8f0fe; color: var(--primary); font-weight: 600; }
-
-        .folder-icon { margin-right: 12px; opacity: 0.7; }
-
-        /* Main Content */
-        main { flex-grow: 1; overflow-y: auto; padding: 40px 20px; display: flex; justify-content: center; }
-        .app-container { width: 100%; max-width: 800px; }
-
-        .task-input-card {
-            background: white; border: 1px solid var(--border);
-            border-radius: 12px; padding: 15px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-            margin-bottom: 30px;
-        }
-
-        .input-row { display: flex; align-items: center; margin-bottom: 10px; }
-        input[type="text"] { 
-            flex-grow: 1; border: none; outline: none; font-size: 18px; padding: 5px;
-        }
-
-        .meta-inputs { display: flex; gap: 10px; flex-wrap: wrap; }
-        .meta-inputs input { 
-            font-size: 12px; border: 1px solid var(--border); 
-            border-radius: 4px; padding: 4px 8px; color: #5f6368;
-        }
-
-        /* Task Items */
-        .task-item {
-            display: flex; padding: 16px; border-bottom: 1px solid #eee;
-            transition: 0.2s; align-items: flex-start;
-        }
-        .task-item:hover { background-color: #fafafa; }
-
-        .check-col { padding-top: 4px; }
-        .content-col { flex-grow: 1; margin-left: 15px; }
-
-        .task-title { font-size: 15px; margin-bottom: 4px; display: block; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f1f3f4; display: flex; justify-content: center; padding: 20px; }
         
-        .task-details { display: flex; gap: 15px; font-size: 12px; color: #70757a; }
-        .date-tag { display: flex; align-items: center; }
-        .deadline { color: var(--danger); font-weight: 600; }
+        .container { background: white; width: 100%; max-width: 500px; padding: 25px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.12); }
+        
+        h2 { color: var(--google-blue); font-weight: 400; margin-top: 0; }
 
-        .circle-check {
-            width: 20px; height: 20px; border: 2px solid #dadce0;
-            border-radius: 50%; cursor: pointer;
-        }
-        .completed .circle-check { background: var(--primary); border-color: var(--primary); }
-        .completed .task-title { text-decoration: line-through; color: #80868b; }
+        /* Input Section */
+        .input-group { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 20px; }
+        input[type="text"] { width: 100%; padding: 12px; border: 1px solid #dfe1e5; border-radius: 4px; font-size: 16px; outline: none; box-sizing: border-box; }
+        
+        .meta-row { display: flex; gap: 10px; flex-wrap: wrap; }
+        select, input[type="date"] { padding: 5px; border: 1px solid #dfe1e5; border-radius: 4px; font-size: 12px; color: var(--text-gray); }
 
-        @media (max-width: 768px) {
-            body { flex-direction: column; }
-            nav { width: 100%; height: auto; border-right: none; border-bottom: 1px solid var(--border); padding: 10px 0; }
-            .nav-item { padding: 8px 15px; }
-        }
+        /* Task List Section */
+        ul { list-style: none; padding: 0; }
+        li { display: flex; align-items: flex-start; padding: 12px 0; border-bottom: 1px solid #f1f3f4; transition: 0.2s; }
+        li:hover { background-color: #fafafa; }
+
+        .checkbox { margin-top: 4px; margin-right: 15px; cursor: pointer; width: 18px; height: 18px; accent-color: var(--google-blue); }
+        
+        .task-info { flex-grow: 1; }
+        .task-name { font-size: 15px; display: block; margin-bottom: 4px; }
+        
+        /* Tags and Dates Styling */
+        .details-row { display: flex; gap: 12px; flex-wrap: wrap; font-size: 11px; color: var(--text-gray); align-items: center; }
+        .tag-pill { background: #e8f0fe; color: var(--google-blue); padding: 2px 8px; border-radius: 10px; font-weight: bold; }
+        .date-item { display: flex; align-items: center; }
+        .is-deadline { color: var(--deadline-red); font-weight: bold; }
+
+        .completed .task-name { text-decoration: line-through; color: #9aa0a6; }
     </style>
 </head>
 <body>
 
-<nav id="sidebar">
-    <div class="section-label">Main</div>
-    <div class="nav-item active" onclick="switchFolder('All Tasks')">Inbox</div>
+<div class="container">
+    <h2>Business Tasks</h2>
     
-    <div class="section-label">Folders / Projects</div>
-    <div class="nav-item" onclick="switchFolder('Operations')"><span class="folder-icon">📁</span> Operations</div>
-    <div class="nav-item" onclick="switchFolder('Marketing')"><span class="folder-icon">📁</span> Marketing</div>
-    <div class="nav-item" onclick="switchFolder('Sales')"><span class="folder-icon">📁</span> Sales</div>
-    
-    <div class="section-label">Analysis</div>
-    <div class="nav-item">📊 KPI Dashboard</div>
-    <div class="nav-item">🎯 KRAs</div>
-</nav>
-
-<main>
-    <div class="app-container">
-        <h2 id="viewTitle">All Tasks</h2>
-
-        <div class="task-input-card">
-            <div class="input-row">
-                <input type="text" id="taskName" placeholder="What needs to be done?">
-                <button onclick="addTask()" style="background: var(--primary); color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer;">Add</button>
-            </div>
-            <div class="meta-inputs">
-                <label>Start: <input type="date" id="startDate"></label>
-                <label>Due: <input type="date" id="dueDate"></label>
-                <label>Deadline: <input type="date" id="deadlineDate"></label>
-            </div>
+    <div class="input-group">
+        <input type="text" id="taskInput" placeholder="+ Add a task and press Enter">
+        <div class="meta-row">
+            <select id="taskTag">
+                <option value="General">General</option>
+                <option value="Operations">Operations</option>
+                <option value="Marketing">Marketing</option>
+                <option value="Sales">Sales</option>
+            </select>
+            <input type="date" id="startDate" title="Start Date">
+            <input type="date" id="dueDate" title="Due Date">
+            <input type="date" id="deadlineDate" title="Deadline (Critical)">
         </div>
-
-        <div id="taskContainer">
-            </div>
     </div>
-</main>
+
+    <ul id="taskList"></ul>
+</div>
 
 <script>
-    let currentFolder = "All Tasks";
+    const input = document.getElementById('taskInput');
+    const list = document.getElementById('taskList');
 
-    function switchFolder(name) {
-        currentFolder = name;
-        document.getElementById('viewTitle').innerText = name;
-        // Logic to filter tasks by folder would go here later
-        document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
-        event.currentTarget.classList.add('active');
-    }
+    input.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter' && input.value.trim() !== "") {
+            addTask();
+        }
+    });
 
     function addTask() {
-        const name = document.getElementById('taskName').value;
+        const text = input.value;
+        const tag = document.getElementById('taskTag').value;
         const start = document.getElementById('startDate').value;
         const due = document.getElementById('dueDate').value;
         const dead = document.getElementById('deadlineDate').value;
 
-        if (!name) return;
-
-        const taskHtml = `
-            <div class="task-item">
-                <div class="check-col">
-                    <div class="circle-check" onclick="toggleTask(this)"></div>
-                </div>
-                <div class="content-col">
-                    <span class="task-title">${name}</span>
-                    <div class="task-details">
-                        ${start ? `<span class="date-tag">Start: ${start}</span>` : ''}
-                        ${due ? `<span class="date-tag">Due: ${due}</span>` : ''}
-                        ${dead ? `<span class="date-tag deadline">⚠️ Deadline: ${dead}</span>` : ''}
-                        <span class="date-tag">📂 ${currentFolder}</span>
-                    </div>
+        const li = document.createElement('li');
+        li.innerHTML = `
+            <input type="checkbox" class="checkbox" onclick="toggleComplete(this)">
+            <div class="task-info">
+                <span class="task-name">${text}</span>
+                <div class="details-row">
+                    <span class="tag-pill">${tag}</span>
+                    ${start ? `<span class="date-item">Start: ${start}</span>` : ''}
+                    ${due ? `<span class="date-item">Due: ${due}</span>` : ''}
+                    ${dead ? `<span class="date-item is-deadline">⚠️ Deadline: ${dead}</span>` : ''}
                 </div>
             </div>
         `;
 
-        document.getElementById('taskContainer').insertAdjacentHTML('afterbegin', taskHtml);
+        list.prepend(li);
         
-        // Clear inputs
-        document.getElementById('taskName').value = "";
+        // Reset inputs
+        input.value = "";
+        document.getElementById('startDate').value = "";
+        document.getElementById('dueDate').value = "";
+        document.getElementById('deadlineDate').value = "";
     }
 
-    function toggleTask(el) {
-        el.closest('.task-item').classList.toggle('completed');
+    function toggleComplete(checkbox) {
+        const parent = checkbox.closest('li');
+        parent.classList.toggle('completed');
     }
 </script>
 
