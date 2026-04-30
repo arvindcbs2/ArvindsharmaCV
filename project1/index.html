@@ -3,113 +3,165 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Business Task Tracker</title>
+    <title>Business OS</title>
     <style>
         :root {
             --google-blue: #1a73e8;
             --deadline-red: #d93025;
             --text-gray: #5f6368;
+            --bg-gray: #f1f3f4;
         }
-        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f1f3f4; display: flex; justify-content: center; padding: 20px; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: var(--bg-gray); display: flex; flex-direction: column; align-items: center; padding: 20px; margin: 0; }
         
+        /* Minimalist View Switcher */
+        .nav-tabs { display: flex; gap: 20px; margin-bottom: 20px; }
+        .nav-link { cursor: pointer; color: var(--text-gray); font-size: 14px; font-weight: 500; padding: 5px 10px; border-bottom: 2px solid transparent; }
+        .nav-link.active { color: var(--google-blue); border-bottom: 2px solid var(--google-blue); }
+
         .container { background: white; width: 100%; max-width: 500px; padding: 25px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.12); }
         
-        h2 { color: var(--google-blue); font-weight: 400; margin-top: 0; }
+        h2 { color: var(--google-blue); font-weight: 400; margin-top: 0; font-size: 20px; }
 
-        /* Input Section */
+        /* Shared Components */
+        .hidden { display: none !important; }
+        input, select { border: 1px solid #dfe1e5; border-radius: 4px; outline: none; }
+
+        /* Task View Specifics */
         .input-group { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 20px; }
-        input[type="text"] { width: 100%; padding: 12px; border: 1px solid #dfe1e5; border-radius: 4px; font-size: 16px; outline: none; box-sizing: border-box; }
-        
-        .meta-row { display: flex; gap: 10px; flex-wrap: wrap; }
-        select, input[type="date"] { padding: 5px; border: 1px solid #dfe1e5; border-radius: 4px; font-size: 12px; color: var(--text-gray); }
+        #taskInput { width: 100%; padding: 12px; font-size: 16px; box-sizing: border-box; }
+        .meta-row { display: flex; gap: 8px; flex-wrap: wrap; }
+        .meta-row input, .meta-row select { padding: 5px; font-size: 12px; color: var(--text-gray); }
 
-        /* Task List Section */
-        ul { list-style: none; padding: 0; }
-        li { display: flex; align-items: flex-start; padding: 12px 0; border-bottom: 1px solid #f1f3f4; transition: 0.2s; }
-        li:hover { background-color: #fafafa; }
-
+        ul { list-style: none; padding: 0; margin: 0; }
+        li { display: flex; align-items: flex-start; padding: 12px 0; border-bottom: 1px solid #f1f3f4; }
         .checkbox { margin-top: 4px; margin-right: 15px; cursor: pointer; width: 18px; height: 18px; accent-color: var(--google-blue); }
-        
         .task-info { flex-grow: 1; }
         .task-name { font-size: 15px; display: block; margin-bottom: 4px; }
-        
-        /* Tags and Dates Styling */
-        .details-row { display: flex; gap: 12px; flex-wrap: wrap; font-size: 11px; color: var(--text-gray); align-items: center; }
+        .details-row { display: flex; gap: 12px; flex-wrap: wrap; font-size: 11px; color: var(--text-gray); }
         .tag-pill { background: #e8f0fe; color: var(--google-blue); padding: 2px 8px; border-radius: 10px; font-weight: bold; }
-        .date-item { display: flex; align-items: center; }
         .is-deadline { color: var(--deadline-red); font-weight: bold; }
-
         .completed .task-name { text-decoration: line-through; color: #9aa0a6; }
+
+        /* KPI View Specifics */
+        .kpi-card { border: 1px solid #eee; padding: 15px; border-radius: 8px; margin-bottom: 15px; }
+        .kpi-header { display: flex; justify-content: space-between; font-size: 14px; color: var(--text-gray); margin-bottom: 10px; }
+        .progress-bg { background: #eee; height: 8px; border-radius: 4px; overflow: hidden; }
+        .progress-fill { background: var(--google-blue); height: 100%; width: 0%; transition: width 0.5s; }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <h2>Business Tasks</h2>
-    
-    <div class="input-group">
-        <input type="text" id="taskInput" placeholder="+ Add a task and press Enter">
-        <div class="meta-row">
-            <select id="taskTag">
-                <option value="General">General</option>
-                <option value="Operations">Operations</option>
-                <option value="Marketing">Marketing</option>
-                <option value="Sales">Sales</option>
-            </select>
-            <input type="date" id="startDate" title="Start Date">
-            <input type="date" id="dueDate" title="Due Date">
-            <input type="date" id="deadlineDate" title="Deadline (Critical)">
-        </div>
+    <div class="nav-tabs">
+        <div class="nav-link active" onclick="showView('tasks')">Tasks</div>
+        <div class="nav-link" onclick="showView('kpi')">KPI Dashboard</div>
     </div>
 
-    <ul id="taskList"></ul>
-</div>
+    <div id="taskView" class="container">
+        <h2>Business Tasks</h2>
+        <div class="input-group">
+            <input type="text" id="taskInput" placeholder="+ Add a task and press Enter">
+            <div class="meta-row">
+                <select id="taskTag">
+                    <option value="General">General</option>
+                    <option value="Operations">Operations</option>
+                    <option value="Marketing">Marketing</option>
+                    <option value="Sales">Sales</option>
+                </select>
+                <input type="date" id="startDate">
+                <input type="date" id="dueDate">
+                <input type="date" id="deadlineDate">
+            </div>
+        </div>
+        <ul id="taskList"></ul>
+    </div>
+
+    <div id="kpiView" class="container hidden">
+        <h2>Key Performance Indicators</h2>
+        <div id="kpiList">
+            <div class="kpi-card">
+                <div class="kpi-header">
+                    <span>Monthly Sales Goal</span>
+                    <strong>75%</strong>
+                </div>
+                <div class="progress-bg"><div class="progress-fill" style="width: 75%;"></div></div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-header">
+                    <span>Project Completion</span>
+                    <strong>40%</strong>
+                </div>
+                <div class="progress-bg"><div class="progress-fill" style="width: 40%;"></div></div>
+            </div>
+        </div>
+        <p style="font-size: 12px; color: var(--text-gray); text-align: center;">KRA connections coming soon...</p>
+    </div>
 
 <script>
+    // --- VIEW LOGIC ---
+    function showView(view) {
+        document.getElementById('taskView').classList.toggle('hidden', view !== 'tasks');
+        document.getElementById('kpiView').classList.toggle('hidden', view !== 'kpi');
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.classList.toggle('active', link.innerText.toLowerCase().includes(view));
+        });
+    }
+
+    // --- TASK LOGIC ---
     const input = document.getElementById('taskInput');
     const list = document.getElementById('taskList');
+    let tasks = JSON.parse(localStorage.getItem('myTasks')) || [];
+
+    // Load tasks on startup
+    window.onload = renderTasks;
 
     input.addEventListener('keypress', (e) => {
         if (e.key === 'Enter' && input.value.trim() !== "") {
-            addTask();
+            const newTask = {
+                id: Date.now(),
+                text: input.value,
+                tag: document.getElementById('taskTag').value,
+                start: document.getElementById('startDate').value,
+                due: document.getElementById('dueDate').value,
+                dead: document.getElementById('deadlineDate').value,
+                done: false
+            };
+            tasks.push(newTask);
+            saveAndRender();
+            input.value = "";
         }
     });
 
-    function addTask() {
-        const text = input.value;
-        const tag = document.getElementById('taskTag').value;
-        const start = document.getElementById('startDate').value;
-        const due = document.getElementById('dueDate').value;
-        const dead = document.getElementById('deadlineDate').value;
-
-        const li = document.createElement('li');
-        li.innerHTML = `
-            <input type="checkbox" class="checkbox" onclick="toggleComplete(this)">
-            <div class="task-info">
-                <span class="task-name">${text}</span>
-                <div class="details-row">
-                    <span class="tag-pill">${tag}</span>
-                    ${start ? `<span class="date-item">Start: ${start}</span>` : ''}
-                    ${due ? `<span class="date-item">Due: ${due}</span>` : ''}
-                    ${dead ? `<span class="date-item is-deadline">⚠️ Deadline: ${dead}</span>` : ''}
-                </div>
-            </div>
-        `;
-
-        list.prepend(li);
-        
-        // Reset inputs
-        input.value = "";
-        document.getElementById('startDate').value = "";
-        document.getElementById('dueDate').value = "";
-        document.getElementById('deadlineDate').value = "";
+    function saveAndRender() {
+        localStorage.setItem('myTasks', JSON.stringify(tasks));
+        renderTasks();
     }
 
-    function toggleComplete(checkbox) {
-        const parent = checkbox.closest('li');
-        parent.classList.toggle('completed');
+    function renderTasks() {
+        list.innerHTML = "";
+        tasks.sort((a, b) => b.id - a.id).forEach(task => {
+            const li = document.createElement('li');
+            li.className = task.done ? 'completed' : '';
+            li.innerHTML = `
+                <input type="checkbox" class="checkbox" ${task.done ? 'checked' : ''} onchange="toggleTask(${task.id})">
+                <div class="task-info">
+                    <span class="task-name">${task.text}</span>
+                    <div class="details-row">
+                        <span class="tag-pill">${task.tag}</span>
+                        ${task.start ? `<span>S: ${task.start}</span>` : ''}
+                        ${task.due ? `<span>D: ${task.due}</span>` : ''}
+                        ${task.dead ? `<span class="is-deadline">⚠️ ${task.dead}</span>` : ''}
+                    </div>
+                </div>
+            `;
+            list.appendChild(li);
+        });
+    }
+
+    function toggleTask(id) {
+        tasks = tasks.map(t => t.id === id ? {...t, done: !t.done} : t);
+        saveAndRender();
     }
 </script>
-
 </body>
-</html>
+                        </html>
+                        
